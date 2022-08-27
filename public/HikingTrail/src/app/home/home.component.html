@@ -1,0 +1,88 @@
+<div class="container">
+
+    <div class="row height d-flex justify-content-center align-items-center">
+    
+      <div class="col-md-8">
+        <form #searchForm="ngForm" (ngSubmit)="search()" novalidate>
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" class="form-control" name="searchQuery" placeholder="Search Hiking Trails using name, city or state" ngModel #searchQuery="ngModel">
+                <button class="btn btn-primary" type="submit">Search</button>
+              </div>
+        </form>
+      </div>
+    </div>
+</div>
+<div *ngIf="searchResSuccess">
+
+    <div *ngFor="let trail of trailSearch">
+        <div class="card mt-5 border-5 pt-2 active pb-0 px-3 trails-card">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <h4 class="card-title "><b>{{trail.name}}</b></h4>
+        
+                    </div>
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <p class="card-text text-muted">
+                                <!-- <nb-icon icon="star" status="warning"></nb-icon> -->
+        
+                                <span> <i class="fas fa-hiking"></i> {{trail.length}}</span> |
+                                <span class="glyphicon glyphicon-align-left" aria-hidden="true"><i class="fas fa-city"></i> {{trail.city}} </span> |
+                                <span class="glyphicon glyphicon-align-left" aria-hidden="true"><i class="fas fa-map"></i> {{trail.state}}</span> 
+                                
+                            </p>
+                            <!-- <p class="card-text text-muted small ">
+                                Length:
+                            </p> -->
+                        </h6>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="card-footer bg-white px-0 ">
+                <div class="row">
+                        <div class="col-sm-2">
+                            <a routerLink="trails/{{trail._id}}"><button class="btn btn-primary">Details</button></a>
+                        </div>
+                        
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+<div class="container" *ngIf="searchResError">
+    <h3  style="color: red;">Hiking Trail Not Found! Search is case sensitive!</h3>
+</div>
+<div class="container" *ngIf="!searchResSuccess">
+    <div id="featured">
+        <h2 id="featuredT">Featured Hiking Trails</h2>
+    </div>
+    <div class="row">
+        <div *ngFor="let trail of featuredTrail" class="col col-md-4">
+            <div class="card h-100">
+                <div  *ngIf="trail.imageUrl">
+                    <img class="card-img-top" src="{{trail.imageUrl}}" alt="">
+                </div>
+                <div *ngIf="!trail.imageUrl">
+                    <img class="card-img-top" src="../../assets/images/broken_image.png" alt="Card image cap">
+                </div>
+                
+            <div class="card-body">
+                <h5 class="card-title">{{trail.name}}</h5>
+                <p class="card-text text-muted">
+
+                    <span> <i class="fas fa-hiking"></i> {{trail.length}}</span> |
+                    <span class="glyphicon glyphicon-align-left" aria-hidden="true"><i class="fas fa-city"></i> {{trail.city}} </span> |
+                    <span class="glyphicon glyphicon-align-left" aria-hidden="true"><i class="fas fa-map"></i> {{trail.state}}</span> 
+                    
+                </p>
+                <a routerLink="trails/{{trail._id}}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+            
+    </div>
+</div>
+
+    

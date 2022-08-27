@@ -1,0 +1,136 @@
+
+.height {
+  height: 30vh;
+}
+
+.search {
+  position: relative;
+  margin-top: 15%;
+  box-shadow: 0 0 40px rgba(51, 51, 51, 0.1);
+}
+
+.search input {
+  height: 60px;
+  text-indent: 25px;
+  border: 2px solid #d6d4d4;
+}
+
+.nav-item {
+  margin-right: 6%;
+}
+#nav-bar-links {
+  margin-left: 10%;
+}
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid blue;
+}
+
+.search .fa-search {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+}
+
+.search button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 50px;
+  width: 110px;
+  background: greenyellow;
+  border-radius: 10px;
+}
+/* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .fa-bars,
+.navbar-scroll .navar-brand {
+  color: #4f4f4f;
+}
+
+.navbar-scroll .nav-link:hover {
+  color: #1266f1;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .fa-bars,
+.navbar-scrolled .navar-brand {
+  color: #4f4f4f;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scroll,
+.navbar-scrolled {
+  background-color: #fff;
+}
+
+/* An optional height of the navbar AFTER scroll */
+.navbar.navbar-scroll.navbar-scrolled {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.trail {
+  margin-top: 100px;
+}
+.trails-card {
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 10%;
+  margin-top: 1%; 
+}
+.pagination-button
+{
+  margin-top: 3%;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+.pagination-button button{
+  margin-right: 3%;
+}
+
+.trailImage{
+  width: 94%;
+  height: 94%;
+  margin: 3%;
+  border-radius: 3%;
+}
+.trailCard{
+  width: 150%;
+  height: 93%;
+  margin: 3%;
+  border-radius: 5%;
+  
+}
+#trail-detail{
+  font-family: 'optima';
+  border-bottom: solid 3px;
+  border-color: #1266f1;
+  margin-bottom: 2%;
+}
+#featuredT{
+  margin-left: 15%;
+  margin-bottom: 2%;
+  color: white;
+  font-family: cursive;
+}
+#detailsBtn{
+  position: relative;
+  margin-left: 2%;
+}
+#navRegister{
+  margin-right: 10%;
+}
+.registerUserForm{
+  margin-top: 55px;
+}
+.addTrailDiv h2{
+    margin-left: 40%;
+  font-family: optima;
+}
+
+#back{
+  margin-left: 2px;
+}

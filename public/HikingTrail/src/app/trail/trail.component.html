@@ -1,0 +1,91 @@
+<div class="container trail">
+    <div class="row">
+        <div class="col-sm-6">
+            <div  *ngIf="trail.imageUrl">
+                <img class="trailImage" src="{{trail.imageUrl}}" alt="">
+            </div>
+            <div *ngIf="!trail.imageUrl">
+                <img class="trailImage" src="../../assets/images/broken_image.png" alt="Card image cap">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card trailCard">
+                <div class="card-body">
+                    <div><button class="btn btn-dark btn-sm" (click)="back()">Back</button></div>
+                  <h5 class="card-title">{{trail.name}}</h5>
+                  <div id="trail-detail">
+                    <div>Length: {{trail.length}}</div>
+                    <div>City: {{trail.city}}</div>
+                    <div>State: {{trail.state}}</div>
+                    <div>Is A Loop: {{trail.isALoop?"Yes":"No"}}</div>
+                    <div>Starting Coordinates: {{trail.startingCoordinates}}</div>
+                    <div>Ending Coordinates: {{trail.endingCoordinates}}</div>
+                    <div>
+                        <p>
+                            <i class="fa-regular fa-list-dropdown"></i>
+                            
+                            <br />
+                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#plants" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-list"></i> Plants on the Trail 
+                            </button>
+                            <button class="btn btn-info" id="detailsBtn" type="button" data-toggle="collapse" data-target="#wildlife" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-list"></i> Wildlife on The Trail
+                            </button>
+                          </p>
+                        <div class="collapse" id="plants">
+                        <div class="card card-body">
+                            <div *ngFor="let plant of trail.plants">
+                                <div><h5>Name: {{plant.name}}</h5></div>
+                                <div>Type: {{plant.type}}</div>
+                                <div>Fruit: {{plant.plantWithFruit?"Yes":"No"}}</div>
+                                <br />
+                            </div>
+                        </div>
+                        </div>
+                        <div class="collapse" id="wildlife">
+                            <div class="card card-body">
+                                <div *ngFor="let wildlife of trail.wildLife">
+                                    <div>Name: {{wildlife.name}}</div>
+                                    <div>Type: {{wildlife.type}}</div>
+                                    <div>Is Wildlife Dangerous {{wildlife.isDangerous?"Yes":"No"}}</div>
+                                    <br />
+                                </div>
+                            </div>
+                            </div>
+
+                    </div>
+                    
+                  </div>
+                  <!--  -->
+                  <div *ngIf="isLoggedIn" class="row">
+                        
+                     <div class="col-sm-3">
+                        
+                        <a routerLink="/editTrail/{{trail._id}}" class="btn btn-success">Edit Trail <i class="fas fa-delete"></i></a>
+                      </div>
+                      <div class="col-sm-3">
+                        <a (click)="deleteTrail(trail._id)" class="btn btn-danger">Delete Trail</a>
+                     </div>
+                     <div class="col-sm-3">
+                        
+                        <a  routerLink="/addWildLife/{{trail._id}" class="btn btn-primary">Add Wildlife <i class="fas fa-delete"></i></a>
+                      </div>
+                      <div class="col-sm-3">
+                        
+                        <a routerLink="/addPlant/{{trail._id}}" class="btn btn-primary">Add Plant <i class="fas fa-delete"></i></a>
+                      </div>
+                  </div>    
+
+                </div>
+            </div>
+        
+           
+
+        </div>
+        
+    </div>
+    
+
+</div>
+
+

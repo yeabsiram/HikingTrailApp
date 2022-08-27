@@ -1,0 +1,50 @@
+<div class="container trail">
+
+<div *ngIf="error">
+    <h3  style="color: red;">Error Fetching Trail Data! Use the prev button to go back</h3>
+</div>
+
+<div *ngFor="let trail of trails">
+<div class="card mt-5 border-5 pt-2 active pb-0 px-3 trails-card">
+    <div class="card-body ">
+        <div class="row">
+            <div class="col-sm-12 ">
+                <h4 class="card-title "><b>{{trail.name}}</b></h4>
+
+            </div>
+            <div class="col">
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <p class="card-text text-muted">
+                        <!-- <nb-icon icon="star" status="warning"></nb-icon> -->
+
+                        <span> <i class="fas fa-hiking"></i> {{trail.length}}</span> |
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"><i class="fas fa-city"></i> {{trail.city}} </span> |
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"><i class="fas fa-map"></i> {{trail.state}}</span> 
+                        
+                    </p>
+                    <!-- <p class="card-text text-muted small ">
+                        Length:
+                    </p> -->
+                </h6>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-footer bg-white px-0 ">
+        <div class="row">
+                <div class="col-sm-2">
+                    <a routerLink="{{trail._id}}"><button class="btn btn-primary">Details</button></a>
+                </div>
+                
+        </div>
+    </div>
+    </div>
+</div>
+
+<div *ngIf="trails">
+    <div class="pagination-button">
+        <button class="btn btn-primary" [disabled]="isDisabled" (click)="prev()">Prev</button>
+        <button class="btn btn-primary" [disabled]="isDisabledNext" (click)="next()">Next</button>
+    </div>
+</div>
+</div>

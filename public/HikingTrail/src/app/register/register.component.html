@@ -1,0 +1,63 @@
+<div class="container registerUserForm">
+    <section class="vh-50 gradient-custom">
+        <div class="container py-5 h-50">
+          <div class="row d-flex justify-content-center align-items-center h-50">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-3 text-center">
+                  <form #registerForm="ngForm" (ngSubmit)="register()" novalidate>
+                  <div class="mb-md-0 mt-md-1 pb-5">
+    
+                    <h2 class="fw-bold mb-4 text-uppercase">Register</h2>
+
+                    <div *ngIf="success">
+                      <p style="color: green;">{{successMessage}}</p>
+                    </div>
+                    <div *ngIf="error">
+                      <p style="color: red;">{{errorMessage}}</p>
+                    </div>
+
+                    <div class="form-outline form-white mb-2">
+                        <input type="text" name="name" minlength="2" required class="form-control form-control-sm" ngModel #name="ngModel" />
+                        <div *ngIf="!name?.valid && (name?.dirty|| name?.touched)"><small style="color: red;">invalid name</small></div>
+    
+                        <label class="form-label">Name</label>
+                    </div>
+            
+                    <div class="form-outline form-white mb-2">
+                      <input type="text" name="username" minlength="2" required class="form-control form-control-sm" ngModel #username="ngModel" />
+                      <div *ngIf="!username?.valid && (username?.dirty|| username?.touched)"><small style="color: red;">invalid username</small> </div>
+    
+                      <label class="form-label">Username</label>
+                    </div>
+      
+                    <div class="form-outline form-white mb-2">
+                      <input type="password" name="password" minlength="3" required class="form-control form-control-sm" ngModel #password="ngModel" />
+                      <div *ngIf="!password?.valid && (password?.dirty|| password?.touched)"><small style="color: red;">invalid password</small> </div>
+    
+                      <label class="form-label" >Password</label>
+                    </div>
+                    <div class="form-outline form-white mb-2">
+                        <input type="password" name="rpPassword" required minlength="3"  class="form-control form-control-sm" ngModel #rpPassword="ngModel" />
+                        <div *ngIf="!rpPassword?.valid &&  (rpPassword?.dirty|| rpPassword?.touched) "><small style="color: red;">invalid password</small> </div>
+                        <div *ngIf="passwordMatch"><small style="color: red;">Passowrd doesn't match</small></div>
+    
+                        <label class="form-label" >Repeat Password</label>
+                    </div>
+      
+                    <button class="btn btn-outline-light btn-sm px-5" [disabled]="!registerForm.valid" type="submit">register</button>
+                  </div>
+                </form>
+                  <div class="mt-0">
+                    <p>If you have an account login <a routerLink="/login" class="text-white-50 fw-bold">Login</a>
+                    </p>
+                  </div>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+    

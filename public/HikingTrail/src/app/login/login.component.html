@@ -1,0 +1,44 @@
+<div class="container registerUserForm">
+  <section class="vh-50 gradient-custom">
+      <div class="container py-5 h-50">
+        <div class="row d-flex justify-content-center align-items-center h-50">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+              <div class="card-body p-3 text-center">
+                <form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
+                <div class="mb-md-0 mt-md-1 pb-5">
+  
+                  <h2 class="fw-bold mb-4 text-uppercase">Login</h2>
+
+                  <div *ngIf="error">
+                    <p style="color: red;">{{errorMessage}}</p>
+                  </div>
+
+                  <div class="form-outline form-white mb-2">
+                    <input type="text" name="username" minlength="2" required class="form-control form-control-sm" ngModel #username="ngModel" />
+                    <div *ngIf="!username?.valid && (username?.dirty|| username?.touched)"><small style="color: red;">invalid username</small> </div>
+  
+                    <label class="form-label">Username</label>
+                  </div>
+    
+                  <div class="form-outline form-white mb-2">
+                    <input type="password" name="password" minlength="3" required class="form-control form-control-sm" ngModel #password="ngModel" />
+                    <div *ngIf="!password?.valid && (password?.dirty|| password?.touched)"><small style="color: red;">invalid password</small> </div>
+  
+                    <label class="form-label" >Password</label>
+                  </div>
+                  <button class="btn btn-outline-light btn-sm px-5" [disabled]="!loginForm.valid" type="submit">Login</button>
+                </div>
+              </form>
+              <div>
+                <p>If you don't have an account register <a routerLink="/register" class="text-white-50 fw-bold">Register</a></p>
+              </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+  
